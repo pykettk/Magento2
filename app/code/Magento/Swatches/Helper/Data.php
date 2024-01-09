@@ -284,7 +284,11 @@ class Data
     private function addFilterByAttributes(ProductCollection $productCollection, array $attributes)
     {
         foreach ($attributes as $code => $option) {
-            $productCollection->addAttributeToFilter($code, ['eq' => $option]);
+            $equalityOperator = is_array($option) && count($option) > 1
+                ? 'in'
+                : 'eq';
+            
+            $productCollection->addAttributeToFilter($code, [$equalityOperator => $option]);
         }
     }
 

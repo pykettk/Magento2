@@ -413,6 +413,7 @@ class Repository implements ResetAfterRequestInterface
      *
      * @param string $fileId
      * @return string
+     * @throws LocalizedException
      */
     public function getUrl($fileId)
     {
@@ -428,6 +429,7 @@ class Repository implements ResetAfterRequestInterface
      * @param string $fileId
      * @param array $params
      * @return string
+     * @throws LocalizedException
      * @see getUrl()
      */
     public function getUrlWithParams($fileId, array $params)
